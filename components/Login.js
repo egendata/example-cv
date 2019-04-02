@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Box, Button, Typography } from '@smooth-ui/core-sc'
+import { Box, Typography } from '@smooth-ui/core-sc'
 import axios from 'axios'
 import QRCode from 'qrcode.react'
 import copy from 'copy-to-clipboard'
@@ -13,7 +13,7 @@ export default () => {
 
   const poll = id => setInterval(async () => {
     try {
-      const { data } = await axios.get(`/api/consentrequest/${id}`)
+      const { data } = await axios.get(`/api/login/${id}`)
       clearInterval(pollId)
       storage.setAccessToken(data.accessToken)
       dispatch({ type: 'SET_TOKEN', payload: data.accessToken })
@@ -25,10 +25,11 @@ export default () => {
 
   const [data, setData] = useState(null)
   useEffect(() => {
-    axios.post('/api/auth')
+    axios
+      .get('/api/loginRequest')
       .then(({ data }) => {
         setData(data)
-        pollId = poll(data.id)
+        pollId = poll(data.sessionId)
       })
       .catch(err => {
         console.error(err)
@@ -37,26 +38,16 @@ export default () => {
 
   return (
     <Box
-      position="absolute"
-      top={0}
-      ml="auto"
+      ml={100 + 'px'}
       mr="auto"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100vh"
-      width="100vw"
-    >
-      {data && <Box textAlign="center">
-        <Typography variant="h6">Enter the code for this consent request:</Typography>
-        <Box><QRCode
-          size={256}
+      maxWidth={550}
+      style={{ backgroundColor: 'white', boxShadow: '3px 3px 7px 7px rgba(0,0,0,0.1)', padding: 50 + 'px', marginTop: 50 + 'px', borderRadius: 2 + 'px' }}>
+      {data && <Box>
+        <Typography variant="h2">Scan this code to sign in</Typography>
+        <QRCode
           value={data.url}
-          id="qrcode"
-          data-consent-request-id={data.id}
-          data-consent-request-url={data.url}
-          onClick={() => copy(data.url)} /></Box>
-        <Button variant="dark" onClick={() => window.location.assign(data.url)} style={{ marginTop: 10 + 'px' }}>Open on this device</Button>
+          onClick={() => copy(data.url)}
+        />
       </Box>}
     </Box>
   )
