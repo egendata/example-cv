@@ -9,7 +9,8 @@
     "dev": "nodemon --watch ./api --watch ./components --watch ./pages --watch ./services --watch server.js --watch ../../client/lib",
     "test": "NODE_ENV=test jest --color",
     "test:watch": "NODE_ENV=test jest --watchAll",
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint '**/*.js'",
+    "testAndLint": "npm test && npm run lint"
   },
   "contributors": [
     "Adam Näslund <adam.naslund@iteam.se>",
@@ -19,9 +20,9 @@
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/JobtechSwe/mydata/issues"
+    "url": "https://github.com/egendata/example-cv/issues"
   },
-  "homepage": "https://github.com/JobtechSwe/mydata/example#readme",
+  "homepage": "https://github.com/egendata/example-cv#readme",
   "dependencies": {
     "@egendata/client": "0.3.2",
     "@smooth-ui/core-sc": "^7.1.1",
@@ -45,6 +46,10 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@semantic-release/exec": "^3.3.6",
+    "@semantic-release/git": "^7.0.16",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
@@ -61,11 +66,15 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.5",
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.0.0-beta.1",
+    "lint-staged": "^9.2.5",
     "nodemon": "^1.18.10",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.8.1",
+    "semantic-release": "^15.13.24",
+    "semantic-release-docker": "^2.2.0",
     "supertest": "^3.4.2"
   }
 }
