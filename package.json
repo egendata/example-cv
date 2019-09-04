@@ -1,6 +1,6 @@
 {
   "name": "egendata-cv",
-  "version": "0.27.0",
+  "version": "0.27.1",
   "description": "A Data Source/Data Sink offering a searchable CV",
   "main": "server.js",
   "scripts": {
