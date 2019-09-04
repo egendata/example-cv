@@ -4,23 +4,21 @@ FROM node:12-alpine
 ENV USER=cv-user
 RUN adduser --disabled-password --gecos "" $USER
 
-ADD ./client /app/client
-
 # Create app dir
-WORKDIR /app/examples/cv
+WORKDIR /app
 
 # Install app dependencies
-COPY ./examples/cv/package.json /app/examples/cv
-COPY ./examples/cv/package-lock.json /app/examples/cv
+COPY ./package.json .
+COPY ./package-lock.json .
 RUN npm ci
 
 # Bundle app source
-COPY ./examples/cv/ /app/examples/cv
+COPY ./ ./
 
 RUN npm run build
 
-RUN chown -R $USER:$(id -gn $USER) /app/examples/cv
-RUN chmod -R 777 /app/examples/cv
+RUN chown -R $USER:$(id -gn $USER) /app
+RUN chmod -R 777 /app
 
 USER $USER
 CMD [ "npm", "start" ]
