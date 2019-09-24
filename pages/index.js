@@ -1,20 +1,10 @@
 import React from 'react'
-import { Box, Typography, Button, theme, styled } from '@smooth-ui/core-sc'
-
-const Background = styled.div`
-  background-image: url('/landing-page.jpg');
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  z-index: -10;
-`
+import { Box, Typography, Button, theme } from '@smooth-ui/core-sc'
 
 export default () => {
   return (
     <React.Fragment>
-      <Background />
+      <Box style={{ backgroundImage: 'url("/landing-page.jpg")', backgroundSize: 'cover', height: '100vh', width: '100vw', position: 'absolute', top: 0, zIndex: -10 }} />
       <Box
         display="flex"
         justifyContent="space-between"
