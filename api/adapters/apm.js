@@ -14,9 +14,15 @@ if (process.env.APM_SERVER) {
   console.log('No APM instrumentation configured')
 }
 
+const noop = () => {}
+
 function setTransactionName (name) {
   if (apm) {
-    apm.currentTransaction.name = name
+    if (!apm.currentTransaction) {
+      apm.startTransaction(name)
+    } else {
+      apm.setTransactionName(name)
+    }
   }
 }
 
@@ -38,7 +44,16 @@ function withSpan ({ name, type, options }, func) {
   }
 }
 
+function startSpan (name, type, options) {
+  if (!apm || !apm.currentTransaction) {
+    return { end: noop }
+  }
+
+  return apm.currentTransaction.startSpan(name, type, options)
+}
+
 module.exports = {
   setTransactionName,
+  startSpan,
   withSpan
 }

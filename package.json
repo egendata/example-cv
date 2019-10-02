@@ -24,9 +24,10 @@
   },
   "homepage": "https://github.com/egendata/example-cv#readme",
   "dependencies": {
-    "@egendata/client": "0.4.0",
+    "@egendata/client": "^0.6.0",
     "@smooth-ui/core-sc": "^10.1.0",
     "axios": "^0.19.0",
+    "change-case": "^3.1.0",
     "changecase-objects": "^1.1.0",
     "copy-to-clipboard": "^3.2.0",
     "dotenv": "^8.1.0",
