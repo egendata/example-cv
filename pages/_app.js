@@ -3,12 +3,10 @@ import App, { Container } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 // import { init as initApm } from 'elastic-apm-js-base'
-import { globalStyle, createGlobalStyle } from '@smooth-ui/core-sc'
+import { Normalize } from '@smooth-ui/core-sc'
 import Navbar from '../components/Navbar'
 import { StoreProvider } from '../services/StoreContext'
 import { getAccessToken } from '../services/storage'
-
-const GlobalStyle = createGlobalStyle`${globalStyle()}`
 
 export default class MyDataCV extends App {
   async componentDidMount () {
@@ -47,7 +45,7 @@ export default class MyDataCV extends App {
 
     return (
       <React.Fragment>
-        <GlobalStyle />
+        <Normalize />
         <Head>
           <title>CV</title>
         </Head>
