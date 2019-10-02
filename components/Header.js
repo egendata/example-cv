@@ -33,27 +33,26 @@ export default () => {
   return (
     <Box display="flex" flexDirection="column" alignItems="center" mt={40} mb={20}>
       <Typography variant="h3" mt={20}>
-        { draft
+        {draft
           ? <Input value={draft.firstName} onChange={changeHandler} name="firstName" placeholder="First name" onKeyPress={handleKeyPress} />
-          : (baseData && baseData.firstName) || 'First name'
-        }
+          : (baseData && baseData.firstName) || 'First name'}
         &nbsp;
-        { draft
+        {draft
           ? <Input value={draft.lastName} onChange={changeHandler} name="lastName" placeholder="Last name" onKeyPress={handleKeyPress} />
-          : (baseData && baseData.lastName) || 'Last name'
-        }
+          : (baseData && baseData.lastName) || 'Last name'}
       </Typography>
       <Box mb={1}>
-        { draft
+        {draft
           ? <Input value={draft.headline} onChange={changeHandler} name="headline" placeholder="Your headline here" onKeyPress={handleKeyPress} />
-          : (baseData && baseData.headline) || 'Your headline here'
-        }
+          : (baseData && baseData.headline) || 'Your headline here'}
       </Box>
-      <Button size="sm" variant={draft ? 'success' : 'light'} mb={1} onClick={draft
-        ? () => save()
-        : () => setDraft(baseData ? Object.assign({}, emptyDraft, baseData) : emptyDraft)
-      }>
-        { draft ? 'Save' : 'Edit'}
+      <Button
+        size="sm"
+        variant={draft ? 'success' : 'light'}
+        mb={1}
+        onClick={draft ? () => save() : () => setDraft(baseData ? Object.assign({}, emptyDraft, baseData) : emptyDraft)}
+      >
+        {draft ? 'Save' : 'Edit'}
       </Button>
     </Box>)
 }

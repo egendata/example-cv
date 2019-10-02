@@ -1,5 +1,5 @@
 import React from 'react'
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 // import { init as initApm } from 'elastic-apm-js-base'
@@ -44,18 +44,16 @@ export default class MyDataCV extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <React.Fragment>
+      <>
         <Normalize />
         <Head>
           <title>CV</title>
         </Head>
-        <Container>
-          <StoreProvider>
-            <Navbar />
-            <Component {...pageProps} />
-          </StoreProvider>
-        </Container>
-      </React.Fragment>
+        <StoreProvider>
+          <Navbar />
+          <Component {...pageProps} />
+        </StoreProvider>
+      </>
     )
   }
 }

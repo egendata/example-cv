@@ -3,7 +3,7 @@ import { Box, Typography, Button, theme } from '@smooth-ui/core-sc'
 
 export default () => {
   return (
-    <React.Fragment>
+    <>
       <Box style={{ backgroundImage: 'url("/landing-page.jpg")', backgroundSize: 'cover', height: '100vh', width: '100vw', position: 'absolute', top: 0, zIndex: -10 }} />
       <Box
         display="flex"
@@ -12,7 +12,8 @@ export default () => {
         <Box
           ml={100 + 'px'}
           mr={100 + 'px'} maxWidth={550}
-          style={{ backgroundColor: 'white', boxShadow: '3px 3px 7px 7px rgba(0,0,0,0.1)', padding: 50 + 'px', marginTop: 50 + 'px', borderRadius: 2 + 'px' }}>
+          style={{ backgroundColor: 'white', boxShadow: '3px 3px 7px 7px rgba(0,0,0,0.1)', padding: 50 + 'px', marginTop: 50 + 'px', borderRadius: 2 + 'px' }}
+        >
           <Typography variant="h1">
             C:V - Create your digital <span style={{ color: theme.brick }}>Curriculum Vitae</span>
           </Typography>
@@ -27,6 +28,6 @@ export default () => {
           <Button variant="success" onClick={() => window.location.assign('/auth')} style={{ marginTop: 10 + 'px' }}>Login with Egendata</Button>
         </Box>
       </Box>
-    </React.Fragment>
+    </>
   )
 }

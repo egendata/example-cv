@@ -7,43 +7,50 @@ const StoreContext = createContext({})
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_EXPERIENCE':
-      return { ...state,
+      return {
+        ...state,
         experience: state.experience
           ? state.experience.concat(action.payload.entry)
           : [action.payload.entry],
         dirty: { ...state.dirty, experience: true }
       }
     case 'UPDATE_EXPERIENCE':
-      return { ...state,
+      return {
+        ...state,
         experience: state.experience.map((x, i) => action.payload.index !== i ? x : Object.assign({}, x, action.payload.entry)),
         dirty: { ...state.dirty, experience: true }
       }
     case 'ADD_LANGUAGE':
-      return { ...state,
+      return {
+        ...state,
         languages: state.languages
           ? state.languages.concat(action.payload.entry)
           : [action.payload.entry],
         dirty: { ...state.dirty, languages: true }
       }
     case 'UPDATE_LANGUAGE':
-      return { ...state,
+      return {
+        ...state,
         languages: state.languages.map((x, i) => action.payload.index !== i ? x : Object.assign({}, x, action.payload.entry)),
         dirty: { ...state.dirty, languages: true }
       }
     case 'ADD_EDUCATION':
-      return { ...state,
+      return {
+        ...state,
         education: state.education
           ? state.education.concat(action.payload.entry)
           : [action.payload.entry],
         dirty: { ...state.dirty, education: true }
       }
     case 'UPDATE_EDUCATION':
-      return { ...state,
+      return {
+        ...state,
         education: state.education.map((x, i) => action.payload.index !== i ? x : Object.assign({}, x, action.payload.entry)),
         dirty: { ...state.dirty, education: true }
       }
     case 'UPDATE_BASEDATA':
-      return { ...state,
+      return {
+        ...state,
         baseData: action.payload,
         dirty: { ...state.dirty, baseData: true }
       }
