@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/egendata/example-cv/compare/v0.28.1...v1.0.0) (2019-10-09)
+
+
+### Features
+
+* 🎸 rename protocol ([#7](https://github.com/egendata/example-cv/issues/7)) ([baa9093](https://github.com/egendata/example-cv/commit/baa9093))
+
+
+### BREAKING CHANGES
+
+* rename protocol from `mydata:` to `egendata:`
+
 ## [0.28.1](https://github.com/egendata/example-cv/compare/v0.28.0...v0.28.1) (2019-09-24)
 
 
