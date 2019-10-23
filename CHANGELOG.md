@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/egendata/example-cv/compare/v1.0.0...v1.1.0) (2019-10-23)
+
+
+### Features
+
+* 🎸 Hooked up instrumentation ([#6](https://github.com/egendata/example-cv/issues/6)) ([f6448dd](https://github.com/egendata/example-cv/commit/f6448dda3875daf4f9021ad5ae6f9d0fa676dee7)), closes [/github.com/babel/babel-eslint/issues/530#issuecomment-446934009](https://github.com//github.com/babel/babel-eslint/issues/530/issues/issuecomment-446934009)
+
 # [1.0.0](https://github.com/egendata/example-cv/compare/v0.28.1...v1.0.0) (2019-10-09)
 
 
