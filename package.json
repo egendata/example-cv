@@ -74,7 +74,7 @@
     "nodemon": "^1.19.3",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.10.1",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^15.13.28",
     "semantic-release-docker": "^2.2.0",
     "supertest": "^4.0.2"
   }
