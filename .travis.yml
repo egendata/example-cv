@@ -23,6 +23,24 @@ jobs:
       script:
         - npx semantic-release
 
+    - stage: e2e
+      language: node_js
+      services:
+        - docker
+      before_install:
+        # Install a newer version of docker-compose than the one provided by Travis
+        - sudo rm /usr/local/bin/docker-compose
+        - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+        - chmod +x docker-compose
+        - sudo mv docker-compose /usr/local/bin
+        - sudo apt-get install libgconf-2-4 # cypress needs this
+        - git clone https://github.com/egendata/e2e.git ../e2e
+      install:
+        - npm ci
+        - npm ci --prefix ../e2e
+      script:
+        - npm run test:local:cv --prefix ../e2e
+
 # Flow control
 # This section defines the order in which stages are run and when to run certain stages
 stages:
@@ -30,6 +48,8 @@ stages:
     if: branch != master AND tag IS NOT present
   - name: publish
     if: (branch = master AND type != pull_request)
+  - name: e2e
+    if: branch = master && type = pull_request
 
 notifications:
   email:
