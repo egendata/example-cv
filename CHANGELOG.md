@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/egendata/example-cv/compare/v1.1.0...v1.1.1) (2019-12-11)
+
+
+### Bug Fixes
+
+* 🐛 issue with client returning empty jwk ([0a8be52](https://github.com/egendata/example-cv/commit/0a8be525aa5498b4fcb5e4caf09bb9df872bb028))
+
 # [1.1.0](https://github.com/egendata/example-cv/compare/v1.0.0...v1.1.0) (2019-10-23)
 
 
