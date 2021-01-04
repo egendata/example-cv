@@ -26,7 +26,7 @@
   "dependencies": {
     "@egendata/client": "1.2.0",
     "@smooth-ui/core-sc": "^10.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "change-case": "^3.1.0",
     "changecase-objects": "^1.1.0",
     "copy-to-clipboard": "^3.2.0",
